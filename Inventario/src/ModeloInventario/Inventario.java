@@ -1,5 +1,5 @@
 
-package inventario;
+package ModeloInventario;
 
 public class Inventario {
 
