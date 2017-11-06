@@ -1,21 +1,23 @@
-package ModeloInventario;
+package Inventario.Modelo.Calibraciones;
 
+import Inventario.Modelo.Medidas.Medida;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Calibracion implements Serializable {
 
     public Calibracion(int numCaligracion, String instrumento,
-            Date fecha, ArrayList<Medida> mediciones) {
-        this.numCaligracion = numCaligracion;
+            Date fecha) {
+        this.numCalibracion = numCaligracion;
         this.instrumento = instrumento;
         this.fecha = fecha;
-        this.mediciones = mediciones;
+        this.mediciones = new ArrayList<>();
     }
 
-    public int getNumCaligracion() {
-        return numCaligracion;
+    public int getNumCalibracion() {
+        return numCalibracion;
     }
 
     public String getInstrumento() {
@@ -26,22 +28,18 @@ public class Calibracion implements Serializable {
         return fecha;
     }
 
-    public ArrayList<Medida> getMediciones() {
-        return mediciones;
-    }
-    
     public static String[] getDesccasillas() {
         return desccasillas;
     }
-    
+
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder("{");
-        s.append(getNumCaligracion());
+        s.append(getNumCalibracion());
         s.append(", ");
         s.append(getInstrumento());
         s.append(", ");
-        s.append(new java.util.Date(fecha.getTime()));
+        s.append(new java.util.Date(fecha.getTime()).toString());
         mediciones.forEach((medicion) -> {
             s.append(", ");
             s.append(medicion.toString());
@@ -53,10 +51,9 @@ public class Calibracion implements Serializable {
     private static final String[] desccasillas = {
         "numCaligracion", "instrumento", "fecha", "mediciones"
     };
-    
 
-    private final int numCaligracion;
+    private final int numCalibracion;
     private final String instrumento;
     private final Date fecha;
-    private final ArrayList<Medida> mediciones;
+    private final List<Medida> mediciones;
 }

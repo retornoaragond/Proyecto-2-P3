@@ -1,4 +1,4 @@
-package ModeloInventario;
+package Inventario.Modelo.Instrumento;
 
 import java.io.Serializable;
 
